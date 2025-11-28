@@ -148,13 +148,17 @@ body,
 		padding: 0.875rem 1rem;
 		font-size: $fs-base;
 		border-radius: 0.5rem;
+		color: $neutral-600;
 		background-color: $neutral-200;
 		outline: none;
 	}
 
-	input:focus,
-	textarea:focus {
-		border-color: $primary;
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		-webkit-box-shadow: 0 0 0px 1000px $neutral-200 inset !important;
+		// -webkit-text-fill-color: $neutral-600 !important;
 	}
 
 	textarea {

@@ -10,6 +10,10 @@ const props = defineProps({
 		type: String,
 		default: '',
 	},
+	showValidation: {
+		type: Boolean,
+		default: false,
+	},
 	error: {
 		type: String,
 		default: '',
@@ -62,7 +66,7 @@ const levels = [
 			<img src="../../assets/icons/field-error.svg" alt="" width="10" />
 			<p>{{ error }}</p>
 		</div>
-		<div class="success" v-if="!error && modelValue">
+		<div class="success" v-if="!error && modelValue && showValidation">
 			<img src="../../assets/icons/field-success.svg" alt="" width="10" />
 			<p>Супер</p>
 		</div>
@@ -113,6 +117,12 @@ $arrow-up: url("data:image/svg+xml;utf8,<svg width='14' height='8' viewBox='0 0 
 		border-color: $primary;
 		background-image: $arrow-up;
 		color: $neutral-800;
+	}
+
+	select:target {
+		border-color: red;
+		background-image: $arrow-down;
+		color: red;
 	}
 
 	select.has-error {

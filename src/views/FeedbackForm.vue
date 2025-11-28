@@ -91,16 +91,15 @@ const hideOnStep = (stepToHide) => isMobile.value && step.value === stepToHide
 							autocomplete="tel"
 							placeholder="+7 (000) 000 00 00"
 							@input="onInput('phone', $event)"
-							@blur="onBlur('phone', $event)" />
+							@blur="onBlur('phone', $event);" />
 
 						<BaseSelect
 							:class="{ 'hide-xs': hideOnStep(1) }"
 							v-model="form.level"
 							label="Грейд"
 							:showValidation="showValidation"
-							:error="errors.level"
-							@blur="onBlur('level', $event)"
-							@input="onSelectInput" />
+							:error="errors.level"	
+							@blur="onSelectInput" />
 
 						<BaseTextarea
 							:class="{ 'hide-xs': hideOnStep(1) }"

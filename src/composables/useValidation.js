@@ -126,6 +126,6 @@ export function useValidation(isMobile, step) {
 		resetForm,
 		backToForm,
 		onKeydown,
-		onSelectInput
+		onSelectInput,
 	}
 }
