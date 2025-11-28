@@ -1,0 +1,47 @@
+@use '../variables' as *;
+@use './_text-mixin' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: 'OpenSansBold', sans-serif;
+	color: $neutral-800;
+}
+
+h1,
+.h1 {
+	@include text-style($fs-h1, $lh-h1);
+}
+
+h2,
+.h2 {
+	@include text-style($fs-h2, $lh-h2);
+
+	@media (max-width: $mobile) {
+		@include text-style($fs-h5, $lh-h5);
+	}
+}
+
+h3,
+.h3 {
+	@include text-style($fs-h3, $lh-h3);
+}
+
+h4,
+.h4 {
+	@include text-style($fs-h4, $lh-h4);
+}
+
+h5,
+.h5 {
+	@include text-style($fs-h5, $lh-h5);
+}

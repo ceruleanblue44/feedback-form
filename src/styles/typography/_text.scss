@@ -1,0 +1,52 @@
+@use '../variables' as *;
+@use './_text-mixin' as *;
+
+.text {
+	font-family: 'OpenSansRegular', sans-serif;
+
+	&-base {
+		@include text-style($fs-base, $lh-base);
+
+		@media (max-width: $mobile) {
+			@include text-style($fs-mini, $lh-mini);
+		}
+	}
+
+	&-small {
+		@include text-style($fs-small, $lh-small);
+	}
+
+	&-mini {
+		@include text-style($fs-mini, $lh-mini);
+	}
+
+	// Bold
+	&-base-bold {
+		@include text-style($fs-base, $lh-base, $weight-bold);
+	}
+
+	&-small-bold {
+		@include text-style($fs-small, $lh-small, $weight-bold);
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-neutral-800 {
+		color: $neutral-800;
+	}
+
+	&-neutral-600 {
+		color: $neutral-600;
+	}
+
+	&-neutral-500 {
+		color: $neutral-500;
+	}
+
+	&-neutral-100 {
+		color: $neutral-100;
+	}
+
+}

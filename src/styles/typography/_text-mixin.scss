@@ -1,0 +1,7 @@
+@use '../variables' as *;
+
+@mixin text-style($size, $line-height, $weight: $weight-regular) {
+	font-size: $size;
+	line-height: $line-height;
+	font-weight: $weight;
+}

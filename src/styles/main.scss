@@ -1,0 +1,275 @@
+@use './reset' as *;
+@use './variables' as *;
+@use './typography/fonts' as *;
+@use './typography/text' as *;
+@use './typography/headings' as *;
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: 'OpenSansRegular', Inter, Arial, sans-serif;
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	margin: 0;
+	background: $neutral-400;
+	color: $text;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+	display: flex;
+	justify-content: center;
+	height: 100dvh;
+}
+
+.form-container {
+	margin-block: 4.25rem;
+	margin-inline: auto;
+	width: 637px;
+	max-width: 100%;
+	height: 100%;
+
+	@media (max-width: $mobile) {
+		width: 100%;
+		margin-inline: 0.625rem;
+		margin-block: 1.75rem 3rem;
+	}
+}
+
+.close-btn {
+	position: absolute;
+	top: 1.25rem;
+	right: 1.25rem;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	border: none;
+	background: none;
+	cursor: default;
+	pointer-events: none;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 24px;
+		height: 2px;
+		background-color: $neutral-500;
+		transform-origin: center;
+	}
+
+	&::before {
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	&::after {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+
+	@media (max-width: $mobile) {
+		top: 0.25rem;
+		right: 0.25rem;
+		width: 36px;
+		height: 36px;
+		background: $neutral-300;
+		border-radius: 50%;
+		cursor: default;
+
+		&::before,
+		&::after {
+			width: 16px;
+			background-color: $neutral-500;
+		}
+	}
+}
+
+.feedback {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	background: $neutral-100;
+	border-radius: 2rem;
+	padding: 2.75rem;
+
+	@media (max-width: $mobile) {
+		height: 100%;
+		margin-bottom: 1rem;
+	}
+
+	&__header {
+		margin-bottom: 1.25rem;
+
+		@media (max-width: $mobile) {
+			margin-bottom: 0.5rem;
+		}
+
+		.h2 {
+			margin-bottom: 0.5rem;
+
+			@media (max-width: $mobile) {
+				margin-bottom: 0.25rem;
+			}
+		}
+	}
+
+	.base {
+		&-input {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		&-textarea {
+			margin-bottom: 2.5rem;
+
+			@media (max-width: $mobile) {
+				margin-bottom: 1.25rem;
+			}
+		}
+	}
+
+	label {
+		font-size: $fs-small;
+		line-height: $lh-small;
+		color: $neutral-600;
+	}
+
+	input,
+	textarea {
+		padding: 0.875rem 1rem;
+		font-size: $fs-base;
+		border-radius: 0.5rem;
+		background-color: $neutral-200;
+		outline: none;
+	}
+
+	input:focus,
+	textarea:focus {
+		border-color: $primary;
+	}
+
+	textarea {
+		resize: vertical;
+		max-width: 100%;
+		overflow: auto;
+	}
+
+	input.has-error {
+		border: 1px solid $error !important;
+	}
+
+	.error {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+
+		p {
+			font-size: $fs-small;
+			color: $error;
+		}
+	}
+
+	.success {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+
+		p {
+			font-size: $fs-small;
+			color: $success;
+		}
+	}
+
+	.form-buttons {
+		display: flex;
+		gap: 1.75rem;
+
+		@media (max-width: $mobile) {
+			gap: 0.5rem;
+		}
+
+		.btn {
+			flex: 1;
+			padding: 0.875rem 1rem;
+			font-size: $fs-base;
+			line-height: $lh-base;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			font-family: inherit;
+			transition: background-color $transition, color $transition;
+
+			@media (max-width: $mobile) {
+				flex: 1;
+				padding: 0.75rem 1rem;
+				font-size: $fs-small;
+				line-height: $lh-small;
+			}
+
+			&.filled {
+				background-color: $primary;
+				color: white;
+
+				@media (hover: hover) {
+					&:hover {
+						background-color: $primary-darken;
+					}
+				}
+
+				&:disabled {
+					background-color: $neutral-400;
+					cursor: default;
+				}
+			}
+
+			&.border {
+				border: 1px solid $primary;
+				color: $primary;
+
+				@media (hover: hover) {
+					&:hover {
+						color: $primary-darken;
+					}
+				}
+
+				&:disabled {
+					background-color: $neutral-200;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	&__footer {
+		margin-top: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.feedback {
+		padding: 16px;
+		border-radius: 12px;
+	}
+}
+
+@media (min-width: $mobile) {
+	.hide-lg {
+		display: none !important;
+	}
+}
+
+@media (max-width: $mobile) {
+	.hide-xs {
+		display: none !important;
+	}
+}
